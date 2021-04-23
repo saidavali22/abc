@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,22 +120,22 @@ USE_L10N = True
 USE_TZ = True
 
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, './fragrances/build/static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticdata')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticdataa')
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
+# CORS_ORIGIN_WHITELIST = ["http://localhost:3000","localhost" ,"127.0.0.1"]
 
-]
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "127.0.0.1:5500" ,"https://eanddfragrances.herokuapp.com/"]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
