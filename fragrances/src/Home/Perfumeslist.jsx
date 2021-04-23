@@ -19,7 +19,7 @@ const Perfumeslist=()=>{
 
     useEffect(()=>{
     
-    fetch('https://eanddfragrances.herokuapp.com/addproduct')
+    fetch('http://127.0.0.1:8000/addproduct')
     .then(response => response.json())
     .then(data =>{ setperfum(data);console.log(data)});
   
