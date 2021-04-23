@@ -35,4 +35,5 @@ urlpatterns = [
     path('' , views.index, name='index'),
     path('adminn' , views.adminn , name="admin"),
     path('addproduct' , include(router.urls)),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+]
